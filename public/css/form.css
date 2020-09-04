@@ -1,0 +1,74 @@
+*{
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-image: url('.././img/bairro.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.container{
+    padding: 0 10% 0 15%;
+}
+.box {
+    margin-top: 100px;
+    width: 90%;
+}
+h1{
+    margin: 20px 0 50px 0;
+    font-size: 50px;
+}
+
+form {
+    background-color: #eee;
+    width: 100%;
+    flex: 1;
+    padding: 10px;
+    box-shadow: 3px 5px 1px rgba(255, 255, 255, 0.336);
+    border-radius: 5px;
+}
+label{
+    font-size: 22px;
+    font-weight: 600;
+    padding: 0 0 2px 0;
+}
+label i {
+    color: red;
+}
+.inputs{
+    margin-top: 10px; 
+}
+.email{
+    margin-bottom: 20px;
+}
+input {
+    width: 98%;
+    height: 30px;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+.buttons {
+    margin-top: 20px; 
+    width: 100%; 
+}
+button {
+    height: 40px;
+    background: rgb(46, 10, 146);
+    width: 99%;
+    color: #fff;
+    border-radius: 5px;
+}
+button:hover{
+    opacity: 0.5;
+}
+
+@media (max-width: 503px){
+    .container{
+        padding: 0 5%;
+    }
+    input {
+        width: 95%;
+    }
+}

@@ -11,7 +11,7 @@ router.get('/', function(req, res){
     return res.render('visitante/index')
 });
 router.get('/sign', function(req, res){
-  return res.send("login morador")
+  return res.render('morador/sign/index')
 });
 router.get('/criar', function(req, res){
   return res.send("criar logs para visitantes")

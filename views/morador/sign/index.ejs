@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/form.css">
     <title>Visita condominio</title>
 </head>
 <body>
-    login do morador
+    <div class="container">
+        <div class="box">
+            <form action="" method="POST">
+                <h1>Sign</h1>
+                <label>Email <i>*</i></label>
+                <div class="inputs email">
+                    <input type="text" name="email" placeholder="digite seu email" required autocomplete="off">
+                </div>
+                <label>Senha <i>*</i></label>
+                <div class="inputs">
+                    <input type="text" name="senha" placeholder="digite seu email" required autocomplete="off">               
+                </div>
+                <div class="buttons">
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
