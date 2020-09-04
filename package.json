@@ -1,0 +1,29 @@
+{
+  "name": "visitanteCondominio",
+  "version": "1.0.0",
+  "description": "sistema para agendamento de visitante",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "roda": "nodemon server.js"
+  },
+  "keywords": [
+    "visitante",
+    "condominio"
+  ],
+  "author": "leonardobussi",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "localtoken": "^0.1.2",
+    "mongoose": "^5.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
