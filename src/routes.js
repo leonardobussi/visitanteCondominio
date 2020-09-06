@@ -1,20 +1,20 @@
 //const Morador = require('../controller/morador');
 const express = require('express');
-const router = express.Router();
+const routes = express.Router();
 
 //const auth = require('../middleware/auth');
 
 
 //router.get('/', Morador.getLogar);
 
-router.get('/', function(req, res){
+routes.get('/', function(req, res){
     return res.render('visitante/index')
 });
-router.get('/sign', function(req, res){
+routes.get('/sign', function(req, res){
   return res.render('morador/sign/index')
 });
-router.get('/criar', function(req, res){
+routes.get('/criar', function(req, res){
   return res.send("criar logs para visitantes")
 });
 
-module.exports = router;
+module.exports = routes;
