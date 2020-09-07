@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/form.css">
+    <style>
+        .container {
+            margin-bottom: 50px;
+        }
+    </style>
     <title>Visita condominio</title>
 </head>
 <body>
+
+
     <div class="container">
         <div class="box">
-            <form action="" method="POST">
+            <form method="POST" enctype="application/x-www-form-urlencoded">
                 <h1>Register</h1>
                 <label>visitando <i>*</i></label>
                 <div class="inputs email">
-                    <input type="text" name="nome_morador" placeholder="digite seu nome" required >
+                    <input type="text" name="nome_morador"  placeholder="digite seu nome" required >
                 </div>
                 <label>nome <i>*</i></label>
                 <div class="inputs email">
                     <input type="text" name="nome_visitante" placeholder="digite o nome do visitante" required >               
                 </div>
                 <label>cpf <i>*</i></label>
-                <div class="inputs">
+                <div class="inputs email">
                     <input type="text" name="cpf" placeholder="digite seu cpf" required >               
+                </div>
+                <label>Data e hora<i>*</i></label>
+                <div class="inputs">
+                    <input type="date" name="data"  required >               
                 </div>
                 <div class="buttons">
                     <button type="submit">Enviar</button>

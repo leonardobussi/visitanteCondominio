@@ -29,9 +29,8 @@ const morador = new schema({
         trim: true
     },
     numero: {
-        type: String,
-        required: true,
-        trim: true
+        type: Number,
+        required: true
     },
 });
 

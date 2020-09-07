@@ -13,6 +13,10 @@ const visitante = new schema({
         required: true,
         trim: true
     },
+    data: {
+        type: Date,
+        required: true,
+    }
 });
 
 module.exports = mongoose.model('visitante', visitante);

@@ -15,6 +15,7 @@ routes.post('/sign', Controller.postLogarMorador);
 routes.get('/criar', Controller.getCriarVisita);
 routes.post('/criar', Controller.postCriarVisita);
 
-
+// routes.get('/morador/criar', Controller.getCriarVisita);
+routes.post('/morador/criar', Controller.postCriarMorador);
 
 module.exports = routes;
