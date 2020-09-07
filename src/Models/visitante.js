@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { mountpath } = require('../../bin');
 
 const schema = mongoose.Schema;
 
@@ -14,12 +15,11 @@ const visitante = new schema({
         trim: true
     },
     cpf: {
-        type: String,
+        type: Number,
         required: true,
-        trim: true
     },
     data: {
-        type: Date,
+        type: String,
         required: true,
     }
 });

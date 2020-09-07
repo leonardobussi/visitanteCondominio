@@ -7,7 +7,7 @@ exports.autorizarMorador = async (req, res, next) => {
     try {
         const token = await storage.getInLocal('moradorLogin');
         if(!token){
-            return res.send('permissao negada');
+            return res.redirect('/sign')
 
         }
         return next();
@@ -20,8 +20,7 @@ exports.autorizarVisitante = async (req, res, next) => {
     try {
         const token = await storage.getInLocal('visitanteLogin');
         if(!token){
-            return res.send('permissao negada');
-
+            return res.redirect('/')
         }
         return next();
     } catch (err) {

@@ -9,7 +9,7 @@ const auth = require('./middleware/auth');
 // visitante login
 exports.getLogarVisitante =  async (req, res, next) => {
     try {
-        return res.render('visitante/index')
+        return res.render('visitante/index.ejs')
     } catch (err) {
         next(err);
     }
@@ -17,21 +17,17 @@ exports.getLogarVisitante =  async (req, res, next) => {
 
 exports.postLogarVisitante =  async (req, res, next) => {
     try {
-        // const resultado = await Adm.validarEntrada(req.body);
-        // if(!resultado) {
-        //     console.log('conta nao encontrada');
-        //     return res.render('login/_index', {danger: "E-mail ou Senha inválido"});
+        const resultado = await visitaResource.validarRegistro(req.body);
+        console.log(resultado)
+        if(!resultado) {
+            console.log('conta nao encontrada');
+            return res.render('visitante/index')
             
-        // }
-        // if(!await cript.compare(req.body.senha, resultado.senha)) {
-        //     console.log('senha do adm incorreto');
-        //     return res.render('login/_index', {danger: "E-mail ou Senha inválido"});
-            
-        // }
-
-        // const token = await auth.gerarToken( { resultado });
-        // storage.setInLocal('login', token);
-        // return res.redirect('painel');
+        }
+    
+        const token = await auth.gerarToken( { resultado });
+        storage.setInLocal('visitanteLogin', token);
+        return res.redirect('/abrir')
 
 
     } catch (err) {
@@ -51,7 +47,6 @@ exports.getLogarMorador =  async (req, res, next) => {
 exports.postLogarMorador =  async (req, res, next) => {
     try {
         const resultado = await moradorResource.validarEntrada(req.body);
-        console.log("dados do model do morador", resultado)
         if(!resultado) {
             console.log('conta nao encontrada');
             return res.render('morador/sign/index.ejs')
@@ -64,10 +59,7 @@ exports.postLogarMorador =  async (req, res, next) => {
         }
 
         const token = await auth.gerarToken( { resultado });
-        storage.setInLocal('moradorLogin', token);
-        console.log('bem-vindo')
-
-        
+        storage.setInLocal('moradorLogin', token);  
         return res.redirect('/criar')
 
 
@@ -77,25 +69,25 @@ exports.postLogarMorador =  async (req, res, next) => {
 }
 
 
-exports.getDeslogarMorador = async (req, res, next) => {
-    try {
-       await storage.removeLocal('moradorLogin');
-       console.log('deslogado');
-       //return res.redirect('/adm/logar');  
-    } catch (err) {
-        next(err);
-    }
-}
+// exports.getDeslogarMorador = async (req, res, next) => {
+//     try {
+//        await storage.removeLocal('moradorLogin');
+//        console.log('deslogado');
+//        //return res.redirect('/adm/logar');  
+//     } catch (err) {
+//         next(err);
+//     }
+// }
 
-exports.getDeslogarVisitante = async (req, res, next) => {
-    try {
-       await storage.removeLocal('visitanteLogin');
-       console.log('deslogado');
-       //return res.redirect('/adm/logar');  
-    } catch (err) {
-        next(err);
-    }
-}
+// exports.getDeslogarVisitante = async (req, res, next) => {
+//     try {
+//        await storage.removeLocal('visitanteLogin');
+//        console.log('deslogado');
+//        return res.redirect('/');  
+//     } catch (err) {
+//         next(err);
+//     }
+// }
 
 // criar funcionario
 exports.getCriarVisita =  async (req, res, next) => {
@@ -144,6 +136,15 @@ exports.postCriarMorador =  async (req, res, next) => {
         console.log('adm ja existe');
         return res.send('morador ja existe')
        }
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.getAbrirPortaoVisita =  async (req, res, next) => {
+    try {
+        await storage.removeLocal('visitanteLogin');
+        return res.render('visitante/loading/index.ejs')
     } catch (err) {
         next(err);
     }
