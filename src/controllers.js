@@ -2,7 +2,7 @@ const cript = require('bcrypt');
 const storage = require('localtoken');
 
 const moradorResource = require('./resources/morador');
-//const visitaResource = require('./resources/visitante');
+const visitaResource = require('./resources/visitante');
 const auth = require('./middleware/auth');
 
 
@@ -51,6 +51,7 @@ exports.getLogarMorador =  async (req, res, next) => {
 exports.postLogarMorador =  async (req, res, next) => {
     try {
         const resultado = await moradorResource.validarEntrada(req.body);
+        console.log("dados do model do morador", resultado)
         if(!resultado) {
             console.log('conta nao encontrada');
             return res.render('morador/sign/index.ejs')
@@ -107,15 +108,17 @@ exports.getCriarVisita =  async (req, res, next) => {
 
 exports.postCriarVisita =  async (req, res, next) => {
     try {
-    //    let resultado = await Adm.validarRegistro(req.body);
-    //    if(!resultado){
-    //        let adm = await Adm.criar(req.body);
-    //        console.log(adm)
-    //        return res.render('registerAdm/_index', {danger: " ", danger2: "registrado com sucesso"});
-    //    } else {
-    //     console.log('adm ja existe');
-    //     return res.render('registerAdm/_index', {danger: "morador já existe",  danger2: " "});
-    //    }
+       let resultado = await visitaResource.validarRegistro(req.body);
+       if(!resultado){
+
+           let visita = await visitaResource.criar(req.body);
+           console.log(visita)
+           console.log('visita registrada');
+           return res.render('morador/criarVisitas/index.ejs')
+       } else {
+        console.log('visita já registrada');
+        return res.render('morador/criarVisitas/index.ejs')
+       }
     } catch (err) {
         next(err);
     }

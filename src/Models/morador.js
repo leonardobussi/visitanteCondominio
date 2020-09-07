@@ -3,11 +3,6 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const morador = new schema({
-    visitante: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'visitante',
-        required: false
-    },
     nome_morador: {
         type: String,
         required: true,
