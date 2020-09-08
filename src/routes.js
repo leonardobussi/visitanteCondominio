@@ -24,23 +24,5 @@ routes.post('/criar', Controller.postCriarVisita);
 routes.post('/morador/criar', Controller.postCriarMorador);
 routes.get('/abrir', auth.autorizarVisitante, Controller.getAbrirPortaoVisita);
 
-routes.post('/teste', async function(req, res){
-    try {
-        let resultado = req.body
-        
-        
-        const dados = await new  modelo(resultado).save();
-
-        const proj = await modelo.find().populate('morador')
-        console.log({proj})
-
-        return res.json({proj})
-     } catch (err) {
-         next(err);
-     }
-})
-
-
-
 
 module.exports = routes;

@@ -12,11 +12,10 @@ const visitante = new schema({
         type: Number,
         required: true,
     },
-    data: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'visita',
-        required: true    
-    }]
+    data: {
+        type: String,
+        required: true,
+    }
 });
 
 module.exports = mongoose.model('visitante', visitante);

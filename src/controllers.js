@@ -45,7 +45,6 @@ exports.getLogarMorador =  async (req, res, next) => {
         next(err);
     }
 }
-
 exports.postLogarMorador =  async (req, res, next) => {
     try {
         const resultado = await moradorResource.validarEntrada(req.body);
@@ -69,28 +68,6 @@ exports.postLogarMorador =  async (req, res, next) => {
         next(err);
     }
 }
-
-
-// exports.getDeslogarMorador = async (req, res, next) => {
-//     try {
-//        await storage.removeLocal('moradorLogin');
-//        console.log('deslogado');
-//        //return res.redirect('/adm/logar');  
-//     } catch (err) {
-//         next(err);
-//     }
-// }
-
-// exports.getDeslogarVisitante = async (req, res, next) => {
-//     try {
-//        await storage.removeLocal('visitanteLogin');
-//        console.log('deslogado');
-//        return res.redirect('/');  
-//     } catch (err) {
-//         next(err);
-//     }
-// }
-
 // criar funcionario
 exports.getCriarVisita =  async (req, res, next) => {
     try {
