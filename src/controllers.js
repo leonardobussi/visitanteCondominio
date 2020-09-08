@@ -1,6 +1,7 @@
 const cript = require('bcrypt'); 
 const storage = require('localtoken');
 
+
 const moradorResource = require('./resources/morador');
 const visitaResource = require('./resources/visitante');
 const residenciaResource = require('./resources/residencia')
@@ -130,8 +131,10 @@ exports.postCriarMorador =  async (req, res, next) => {
     try {
        let resultado = await moradorResource.validarRegistro(req.body);
        if(!resultado){
-           let morador = await moradorResource.criar(req.body);
-           return res.json({morador})
+            let morador = await moradorResource.criar(req.body);
+
+            let residencia = await residenciaResource.criar(req.body);
+           return res.json({morador, residencia})
        } else {
         console.log('adm ja existe');
         return res.send('morador ja existe')
