@@ -18,15 +18,6 @@ const morador = new schema({
         required: true,
         trim: true
     },
-    bloco: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    numero: {
-        type: Number,
-        required: true
-    },
 });
 
 module.exports = mongoose.model('morador', morador);

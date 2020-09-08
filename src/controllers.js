@@ -3,6 +3,7 @@ const storage = require('localtoken');
 
 const moradorResource = require('./resources/morador');
 const visitaResource = require('./resources/visitante');
+const residenciaResource = require('./resources/residencia')
 const auth = require('./middleware/auth');
 
 
@@ -130,7 +131,6 @@ exports.postCriarMorador =  async (req, res, next) => {
        let resultado = await moradorResource.validarRegistro(req.body);
        if(!resultado){
            let morador = await moradorResource.criar(req.body);
-           console.log(morador)
            return res.json({morador})
        } else {
         console.log('adm ja existe');

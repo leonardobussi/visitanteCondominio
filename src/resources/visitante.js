@@ -3,10 +3,10 @@ require('../Models/visitante');
 const mongoose = require('mongoose');
 const modelo =  mongoose.model('visitante');
 
-class Visitante  {
+class visitante  {
     static async criar(dados){
         let { cpf } = dados;
-        dados.senha = cpf;
+        dados.cpf = cpf;
         return await new  modelo(dados).save();
     }
     static async  validarRegistro(dados) {
@@ -24,4 +24,4 @@ class Visitante  {
     }
 }
 
-module.exports = Visitante;
+module.exports = visitante;
