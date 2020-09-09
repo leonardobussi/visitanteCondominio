@@ -7,20 +7,26 @@ const modelo2 =  mongoose.model('morador');
 class Residencia  {
     static async criar(dados){
 
-        const proj = await modelo2.findOne().sort({nome_morador: 1})
-
-        console.log("a procura do id perfeito", proj)
+        let { numero, bloco } = dados;
+        let casa = await modelo.findOne({ numero, bloco});
+        
+        const proj = await modelo2.findOne().sort({nome_morador: -1})
         let {_id} = proj
-
-        console.log("esse era para ser o id perfeito", _id)
-
         let { morador } = dados;
-        morador = _id;
+        morador = _id;   
         dados.morador = morador;
 
-        // /console.log(dados)
-        
-        return await new  modelo(dados).save();
+        if(casa == null){
+           
+     
+             console.log(dados)
+             
+             return await new  modelo(dados).save();
+        }
+        else{
+            let updateCasa = await modelo.update({bloco: bloco, numero: numero}, {$push:{morador : _id}})
+            console.log("casa ja existe no registro", updateCasa)
+        }
     }
 }
 
