@@ -18,24 +18,37 @@
         <div class="box">
             <form method="POST" enctype="application/x-www-form-urlencoded">
                 <h1>Register</h1>
-                <label>visitando <i>*</i></label>
-                <div class="inputs email">
-                    <input type="text" name="nome_morador" value=""  placeholder="digite seu nome" required >
+                <div class="seuDados">
+                    <label>Seu nome <i>*</i></label>
+                    <div class="inputs email">
+                        <input type="text" name="nome" value=""  placeholder="digite seu bloco " required >
+                    </div>
+                    <label>Bloco <i>*</i></label>
+                    <div class="inputs email">
+                        <input type="text" name="bloco" value=""  placeholder="digite seu bloco " required >
+                    </div>
+                    <label>Numero <i>*</i></label>
+                    <div class="inputs email">
+                        <input type="number" name="numero" value=""  placeholder="digite o numero da sua casa " required >
+                    </div>
                 </div>
-                <label>nome <i>*</i></label>
-                <div class="inputs email">
-                    <input type="text" name="nome_visitante" placeholder="digite o nome do visitante" required >               
-                </div>
-                <label>cpf <i>*</i></label>
-                <div class="inputs email">
-                    <input type="number" name="cpf" placeholder="digite seu cpf" maxlength="11" required >               
-                </div>
-                <label>Data e hora<i>*</i></label>
-                <div class="inputs">
-                    <input type="date" name="data"  required >               
-                </div>
-                <div class="buttons">
-                    <button type="submit">Enviar</button>
+                <div class="dadoVisita">
+                    <label>nome do visitante<i>*</i></label>
+                    <span>Obs: Caso seja a familia digite os dados de um representante</span>
+                    <div class="inputs email">
+                        <input type="text" name="nome_visitante" placeholder="digite o nome do visitante" required >               
+                    </div>
+                    <label>Cpf <i>*</i></label>
+                    <div class="inputs email">
+                        <input type="number" name="cpf" placeholder="digite seu cpf" maxlength="11" required >               
+                    </div>
+                    <label>Data e hora<i>*</i></label>
+                    <div class="inputs">
+                        <input type="date" name="data"  required >               
+                    </div>
+                    <div class="buttons">
+                        <button type="submit">Enviar</button>
+                    </div>
                 </div>
             </form>
         </div>

@@ -1,12 +1,12 @@
 require('../Models/visitante');
+require('../Models/residencia');
 
 const mongoose = require('mongoose');
 const modelo =  mongoose.model('visitante');
 
 class visitante  {
     static async criar(dados){
-        let { cpf } = dados;
-        dados.cpf = cpf;
+        console.log(dados)
         return await new  modelo(dados).save();
     }
     static async  validarRegistro(dados) {
@@ -18,9 +18,6 @@ class visitante  {
         let { cpf } = dados;
         let visitante = await modelo.findOne({cpf});
         return visitante;
-    }
-    static async  deletar(id) {
-        return await modelo.findOneAndRemove(id);
     }
 }
 
