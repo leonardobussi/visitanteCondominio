@@ -13,6 +13,8 @@ class Morador  {
         const hash = await cript.hash(senha, salt);
         senha = hash;
         dados.senha = senha;
+
+
         await new  modelo(dados).save();
         return;
     }

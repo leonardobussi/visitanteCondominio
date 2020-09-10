@@ -18,6 +18,11 @@ const morador = new schema({
         required: true,
         trim: true
     },
+    updatedAt: {
+        type: Date,
+        required: true,
+        default: Date.now
+    }
 });
 
 module.exports = mongoose.model('morador', morador);

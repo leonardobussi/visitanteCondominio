@@ -1,14 +1,8 @@
 const Controller = require('./controllers');
 const express = require('express');
 const routes = express.Router();
-
 const auth = require('./middleware/auth');
 
-
-require('./Models/residencia');
-
-const mongoose = require('mongoose');
-const modelo =  mongoose.model('residencia');
 
 routes.get('/', Controller.getLogarVisitante);
 routes.post('/', Controller.postLogarVisitante);
@@ -23,6 +17,7 @@ routes.post('/criar', Controller.postCriarVisita);
 
 routes.post('/morador/criar', Controller.postCriarMorador);
 routes.get('/abrir', auth.autorizarVisitante, Controller.getAbrirPortaoVisita);
+
 
 
 module.exports = routes;

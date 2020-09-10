@@ -10,22 +10,27 @@ class Residencia  {
         let { numero, bloco } = dados;
         let casa = await modelo.findOne({ numero, bloco});
         
-        const proj = await modelo2.findOne().sort({nome_morador: -1})
+        const proj = await modelo2.findOne().sort({updatedAt: -1})
+        console.log(proj)
+
+        if(proj == null){
+            const proj = await modelo2.findOne().sort({updatedAt: 1})
+            console.log("deu ruim no proj", proj)
+        }
+    
         let {_id} = proj
         let { morador } = dados;
         morador = _id;   
         dados.morador = morador;
 
-        if(casa == null){
-           
-     
-             console.log(dados)
-             
+        if(casa == null){         
              return await new  modelo(dados).save();
         }
         else{
             let updateCasa = await modelo.update({bloco: bloco, numero: numero}, {$push:{morador : _id}})
-            console.log("casa ja existe no registro", updateCasa)
+            // console.log("casa ja existe no registro", updateCasa)
+
+            console.log("dados", {casa})
         }
     }
 }

@@ -80,6 +80,7 @@ exports.getCriarVisita =  async (req, res, next) => {
 exports.postCriarVisita =  async (req, res, next) => {
     try {
        let resultado = await visitaResource.validarRegistro(req.body);
+
        if(!resultado){
 
            let visita = await visitaResource.criar(req.body);
