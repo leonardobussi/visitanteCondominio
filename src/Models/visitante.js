@@ -15,6 +15,11 @@ const visitante = new schema({
     data: {
         type: String,
         required: true,
+    },
+    updatedAt: {
+        type: Date,
+        required: true,
+        default: Date.now
     }
 });
 

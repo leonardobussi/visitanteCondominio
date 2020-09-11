@@ -84,7 +84,8 @@ exports.postCriarVisita =  async (req, res, next) => {
        if(!resultado){
 
            let visita = await visitaResource.criar(req.body);
-           console.log(visita)
+           let residencia = await residenciaResource.criarVisita(req.body);
+           console.log(visita, residencia)
            console.log('visita registrada');
            return res.render('morador/criarVisitas/index.ejs')
        } else {
