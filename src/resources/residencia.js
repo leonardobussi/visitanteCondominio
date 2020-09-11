@@ -7,14 +7,15 @@ const modelo2 =  mongoose.model('morador');
 class Residencia  {
     static async criar(dados){
 
-        let { numero, bloco } = dados;
+        //const proj = await modelo2.find().populate('morador')
+
+        let { numero, bloco} = dados;
         let casa = await modelo.findOne({ numero, bloco});
         
         const proj = await modelo2.findOne().sort({updatedAt: -1})
-        console.log(proj)
 
         if(proj == null){
-            const proj = await modelo2.findOne().sort({updatedAt: 1})
+            const proj = await modelo2.findOne().sort({updatedAt: -1})
             console.log("deu ruim no proj", proj)
         }
     

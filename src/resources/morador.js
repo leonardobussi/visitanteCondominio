@@ -14,7 +14,6 @@ class Morador  {
         senha = hash;
         dados.senha = senha;
 
-
         await new  modelo(dados).save();
         return;
     }
