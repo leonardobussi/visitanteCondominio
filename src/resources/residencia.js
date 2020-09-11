@@ -58,7 +58,8 @@ class Residencia  {
         dados.visitante = visitante;
 
         if(casa == null){         
-             return await new  modelo(dados).save();
+             //return await new  modelo(dados).save();
+             console.log("imposivel registrar, o endereco está incorreto")
         }
         else{
             let updateCasa = await modelo.update({bloco: bloco, numero: numero}, {$push:{visitante : _id}})
