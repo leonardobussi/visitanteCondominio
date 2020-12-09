@@ -5,7 +5,7 @@ module.exports = {
         port: process.env.PORT || 3000,
     },
     database: {
-        connection: 'mongodb+srv://rpg:rpg@cluster0.0ddez.mongodb.net/visita?retryWrites=true&w=majority' 
+        connection: '' 
     },
     auth: {
         secret: 'c1c2c3c4c5'
